@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Firebase Web Quickstart
+        </title>
+    </head>
+    <body>
+
+        <h1 id="bigOne"></h1>
+
+                    <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyA_UxWg71_mYMKv0rIC1o3erO-eAJN4G_g",
+                authDomain: "web-quickstart-fe887.firebaseapp.com",
+                projectId: "web-quickstart-fe887",
+                storageBucket: "web-quickstart-fe887.appspot.com",
+                
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            var bigOne=document.getElementById('bigOne');
+            var dbRef = firebase.database().ref().child('text');
+            dbRef.on('value' , snap=>bigOne.innerText = snap.val());
+            
+        </script>
+    </body>
+</html>
